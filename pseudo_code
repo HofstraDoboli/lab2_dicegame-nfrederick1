@@ -12,32 +12,51 @@ int main ()
     int die_2;
     int dice_sum;
     int point;
-    bool final_roll;
+   
     
     char decision;
     print (Welcome to a game of Craps and Explanation of the game)
-    print (press y to roll and n to exit)
+    print (press y to start a game)
     cin >> decision;
     WHILE (decision == 'y' || decision == 'Y')
     {
-        final_roll = false; 
-        WHILE (final_roll == false)
-        {
-           dice_sum = die_1 + die_2;
-           cout << "You rolled a " << die_1 << "and a " << die_2;
-           IF (dice_sum == 7 || dice_sum == 11)
-           {
-               cout << "Your sum was " << dice_sum << "Congraulations You Won" << endl; break;
-               final_roll = true
-           }
-           ELSE IF (dice_sum == 2 || dice_sum = 3 || dice_sum = 12)
-           {
-              cout << "Your sum was " << dice_sum << "Sorry but you lost" << endl;
-                final roll = true
-           }
-        }
-        cout << "Do you want to roll again? (Y/N) ";
-        cin >> decision;
-    }
 
+            string s;
+            print (press enter to roll)
+            getline(cin,s);
+            generate a random # for die_1 and die_2
+            dice_sum = die_1 + die_2;
+            show what ypou rolled
+            IF (dice_sum == 7 || dice_sum == 11)
+            {
+               cout you won 
+               
+            }
+            ELSE IF (dice_sum == 2 || dice_sum = 3 || dice_sum = 12)
+            {
+              cout you lost
+            
+            }
+           ELSE 
+           {
+               point = dice_sum;
+               cout your point
+               bool is_point = false, is_seven = false;
+               while (!is_point and !is_seven)
+               {
+                   ask to roll again
+                   show sum
+                   is_point = (sum == point);
+                   is_seven = (sum == 7);
+               }
+               if (is_point)
+                cout you Won
+               ELSE
+                 cout you lost
+             }
+            
+    }
+        ask if they want to play another game 
+        cin >> decision
+    cout thanks for playing 
 }
