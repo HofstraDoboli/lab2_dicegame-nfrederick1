@@ -44,15 +44,15 @@ int main()
                         // getline = is a function defined in the <string> class
                         // check its definition at: http://www.cplusplus.com/reference/string/string/getline/ 
     cout << "Check what is left unread in the cin buffer: " << s << endl;
-    cout << "Nr. characters left unred in cin buffer: " << s.length() << endl;
+    cout << "Nr. characters left unread in cin buffer: " << s.length() << endl;
   
 
     output_file << "\nQ1: (cin only) What happens when you run the code above? Explain why" << endl;
-    string answer = ""; // enter your answer in between ""
+    string answer = "First you enter 10 and it accepts but then you enter 4.5 and it does not accept but the program continues to run."; // enter your answer in between ""
     output_file << "Answer Q1: " << answer << endl;
 
     cout << "\nCode for Q2 and Q3" << endl;
-    /* //uncomment when you get to Q2 and Q3
+    //uncomment when you get to Q2 and Q3
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -69,26 +69,26 @@ int main()
         if (cin.fail())
         {
             cin.clear(); // clears the flags   
-            cin.ignore(INT_MAX,'\n'); // ignore all characters from cin until new line '\n'
+            cin.ignore(INT8_MAX,'\n'); // ignore all characters from cin until new line '\n'
             cout << "\tERROR: The value you entered is not an integer. Try again." << endl;
         }
         
         cout << "\tYou entered " << val << endl << endl;
     }  
-    */
+    
 
     output_file << "\nQ2: (cin + fail+ignore) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It lets you do what you did the first time but it does tell you fail twice once after you enter abc and presents a message that you haven't entered an integer. Also it let's you know what it ignored including the .5 at the end of the 4.5. It does this because the for loop is reading the array and determining anything that is not an integer and ignoring it but keeping everything else. "; // enter your answer in between ""
     output_file << "Answer Q2: " << answer << endl;
 
     output_file << "\nQ3: Is the problem of reading an integer value solved? Explain your reasoning." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "Yes becuase it can take the integer value of an number based string and ignore other things "; // enter your answer in between ""
     output_file << "Answer Q3: " << answer << endl;
 
     cout << "\nCode for Q4" << endl;
     // uncomment when you get to Q4
-   /*
-    for (int i = 0; i < array_values.size(); i++)
+   
+    /*for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
         cout << "\tEnter an int "; 
@@ -99,9 +99,9 @@ int main()
                             // read more at http://www.cplusplus.com/reference/string/stoi/?kw=stoi
         cout << "\tYou entered " << val << endl << endl;
     }  
-*/
+    */
     output_file << "\nQ4: (getline only) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It accepts all the inputs up until abc which is not an integer so it terminates your code because you entered an invalid argument."; // enter your answer in between ""
     output_file << "Answer Q4: " << answer << endl;
 
     // Comment the for loop for Q4 above - leave the answer to Q4
@@ -124,7 +124,7 @@ int main()
         cout << "\tYou entered " << val << endl << endl;
     }
     output_file << "\nQ5: (getline+stoi) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It accepted every value given but put any invalid arguments "; // enter your answer in between ""
     output_file << "Answer Q5: " << answer << endl;
 
     //6. Q6 Add code to enter integer values from the keyboard correctly = accept only 10, not 4.5, abc or a
@@ -134,6 +134,23 @@ int main()
         cout << "\tEnter the value " << array_values.at(i) << endl;
         cout << "\tEnter an int "; 
 
+        string s;
+        getline(cin,s);
+        
+        try{ 
+            val = stoi(s);
+            if (stoi(s) == stof(s)){
+                cout << "\tCorrect " << s << '\n';
+            }else 
+                cout << "\tIncorrect " << s << '\n';
+            
+        }
+        catch(const std::invalid_argument& ia)
+        {
+            cerr << "\tIncorrect: " << s << '\n';
+        }
+    
+        
         // add your code - it should ask you to type the value you see at line 134. 
         // it should display "Correct 10 " when you enter 10; 
         // it should display "Incorrect ", followed by the value you entered, for the rest of of the values 
@@ -141,7 +158,7 @@ int main()
         // YOUR CODE NEEDS TO DETECT that 4.5 is not an integer
     }
     output_file << "\nQ6: Explain your method to validate integer values entered" << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It simply set up a condition"; // enter your answer in between ""
     output_file << "Answer Q6: " << answer << endl;
     output_file.close();
 }
