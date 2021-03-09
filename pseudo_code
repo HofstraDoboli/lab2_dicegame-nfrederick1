@@ -30,12 +30,10 @@ int main ()
             IF (dice_sum == 7 || dice_sum == 11)
             {
                cout you won 
-               
             }
             ELSE IF (dice_sum == 2 || dice_sum = 3 || dice_sum = 12)
             {
               cout you lost
-            
             }
            ELSE 
            {
