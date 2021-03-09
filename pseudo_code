@@ -1,1 +1,43 @@
 Add your steps (pseudo-code) for the dice game here.
+include <iostream>
+include <cstdlib> 
+include <ctime>
+using namespace std
+
+int main ()
+{
+    srand(time(NULL)); 
+
+    int die_1;
+    int die_2;
+    int dice_sum;
+    int point;
+    bool final_roll;
+    
+    char decision;
+    print (Welcome to a game of Craps and Explanation of the game)
+    print (press y to roll and n to exit)
+    cin >> decision;
+    WHILE (decision == 'y' || decision == 'Y')
+    {
+        final_roll = false; 
+        WHILE (final_roll == false)
+        {
+           dice_sum = die_1 + die_2;
+           cout << "You rolled a " << die_1 << "and a " << die_2;
+           IF (dice_sum == 7 || dice_sum == 11)
+           {
+               cout << "Your sum was " << dice_sum << "Congraulations You Won" << endl; break;
+               final_roll = true
+           }
+           ELSE IF (dice_sum == 2 || dice_sum = 3 || dice_sum = 12)
+           {
+              cout << "Your sum was " << dice_sum << "Sorry but you lost" << endl;
+                final roll = true
+           }
+        }
+        cout << "Do you want to roll again? (Y/N) ";
+        cin >> decision;
+    }
+
+}
